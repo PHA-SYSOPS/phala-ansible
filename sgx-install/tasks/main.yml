@@ -7,12 +7,12 @@
 
   - name: Add Intel Apt signing key
     apt_key:
-      url: https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key
+      url: http://maas-mirror.onenl.farm/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key
       state: present
 
   - name: Add Intel Apt repository
     apt_repository:
-      repo: deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main
+      repo: deb [arch=amd64] http://maas-mirror.onenl.farm/intel-sgx/sgx_repo/ubuntu bionic main
       state: present
 
 
