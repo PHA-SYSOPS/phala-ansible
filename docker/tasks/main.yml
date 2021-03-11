@@ -39,6 +39,11 @@
         state: restarted
       when: docker_config.changed
 
+    - name: enable docker at boot
+      service:
+        name: docker
+        enabled: yes
+
     - name: Create installation directory
       file:
         path=/opt/deploy
