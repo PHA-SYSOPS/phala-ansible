@@ -18,6 +18,11 @@ services:
       - pruntime
     ports:
       - '9292:9292'
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "500m"
 
   pruntime:
     image: phalanetwork/phala-poc3-pruntime:latest
@@ -28,6 +33,11 @@ services:
     devices:
       - "/dev/sgx/enclave:/dev/sgx/enclave"
       - "/dev/sgx/provision:/dev/sgx/provision"
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "500m"
 
   redis:
     image: redis:alpine
@@ -36,6 +46,11 @@ services:
     hostname: redis
     volumes:
       - 'redis-data:/data'
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "500m"
 
 volumes:
   redis-data:
